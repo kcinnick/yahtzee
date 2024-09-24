@@ -19,14 +19,17 @@ def play_game(player, game, verbose=True):
         player.set_game_state(game.game_state)
         action = 0
         
-        # While the turn isn't finished... 
+        # While the turn isn't finished...
+        print('Turn not finished')
         while game.game_state[0] < 3:
+            print('game_state[0] < 3')
             player.set_turn_state(game.turn_state)
             action = player.get_action()
+            print('Received action: ', action)
             game.receive_action(action)
 
             if isinstance(action, int):
-                print("\nClaim the '{}' reward!\n".format(PAYOFF_LS[action][0]))
+                input("\nClaim the '{}' reward!\n".format(PAYOFF_LS[action][0]))
                 break
         
         game.end_turn(action) 

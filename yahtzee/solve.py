@@ -11,11 +11,13 @@ def remaining_dice(dice_state, n_dice):
 
 
 def solve_turn(game_state, game_state_values):
+    print('solve_turn')
 
     turn_actions = {}
     turn_values = {}
 
     # Loop over states
+    print('Loop over states')
     for u in it.turn_state_iter():
 
         #print("\t", u)
