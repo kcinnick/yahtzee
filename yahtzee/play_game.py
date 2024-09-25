@@ -1,4 +1,4 @@
-
+from yahtzee.app_controller import AppController
 from yahtzee.game_player import OptimalPlayer
 from yahtzee.game import InteractiveGame
 from yahtzee.payoffs import PAYOFF_LS
@@ -26,7 +26,7 @@ def play_game(player, game, verbose=True):
             game.receive_action(action)
 
             if isinstance(action, int):
-                print("\nClaim the '{}' reward!\n".format(PAYOFF_LS[action][0]))
+                input("\nClaim the '{}' reward!\n".format(PAYOFF_LS[action][0]))
                 break
         
         game.end_turn(action) 
@@ -63,9 +63,12 @@ def play_interactive_game():
 
     # Initialize an optimal player
     player = OptimalPlayer()
+
+    # Initialize the app controller
+    app_controller = AppController()
     
     # Initialize the game
-    game = InteractiveGame()
+    game = InteractiveGame(app_controller=app_controller)
 
     play_game(player, game)
 
