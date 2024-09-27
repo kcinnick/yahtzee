@@ -12,15 +12,58 @@ class AppController:
         # die_position is an integer from 1 to 5
         # click on the die in the corresponding position
         if die_position == 1:
+            print('Clicking die 1')
+            # input('Press enter to click die 1')
+            # pyautogui.keyDown('alt')
+            # pyautogui.keyDown('tab')
+            # pyautogui.keyUp('tab')
+            # pyautogui.keyUp('alt')
+            # self.click_resume_button()
+            sleep(0.1)
             pyautogui.click(833, 677)
         elif die_position == 2:
-            pyautogui.click(886, 677)
+            print('Clicking die 2')
+            # pyautogui.keyDown('alt')
+            # pyautogui.keyDown('tab')
+            # pyautogui.keyUp('tab')
+            # pyautogui.keyUp('alt')
+            #
+            # input('Press enter to click die 2')
+            # self.click_resume_button()
+            sleep(0.1)
+            pyautogui.click(909, 700)
         elif die_position == 3:
-            pyautogui.click(940, 677)
+            print('Clicking die 3')
+            # pyautogui.keyDown('alt')
+            # pyautogui.keyDown('tab')
+            # pyautogui.keyUp('tab')
+            # pyautogui.keyUp('alt')
+            #
+            # input('Press enter to click die 3')
+            # self.click_resume_button()
+            sleep(0.1)
+            pyautogui.click(940, 698)
         elif die_position == 4:
-            pyautogui.click(994, 677)
+            print('Clicking die 4')
+            # pyautogui.keyDown('alt')
+            # pyautogui.keyDown('tab')
+            # pyautogui.keyUp('tab')
+            # pyautogui.keyUp('alt')
+            #
+            # input('Press enter to click die 4')
+            # self.click_resume_button()
+            sleep(0.1)
+            pyautogui.click(1015, 698)
         elif die_position == 5:
-            pyautogui.click(1048, 677)
+            print('Clicking die 5')
+            # input('Press enter to click die 5')
+            # pyautogui.keyDown('alt')
+            # pyautogui.keyDown('tab')
+            # pyautogui.keyUp('tab')
+            # pyautogui.keyUp('alt')
+            # self.click_resume_button()
+            sleep(0.1)
+            pyautogui.click(1048, 698)
         else:
             print('Invalid die position')
         return
@@ -51,10 +94,16 @@ class AppController:
         return
 
     def click_roll_button(self):
-        pyautogui.click(958, 828)
+        print('Clicking roll button')
+        import time
+        time.sleep(0.5)
+        pyautogui.click(958, 854)
         return
 
     def click_resume_button(self):
+        import time
+        time.sleep(0.1)
+        print('Clicking resume button')
         pyautogui.click(1046, 805)
         return
 

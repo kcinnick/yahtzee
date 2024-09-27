@@ -1,10 +1,26 @@
+import pyautogui
+
 from yahtzee.app_controller import AppController
 from yahtzee.game_player import OptimalPlayer
 from yahtzee.game import InteractiveGame
 from yahtzee.payoffs import PAYOFF_LS
 import pickle as pkl
 
-
+reward_to_coords = {
+    "ones": (848, 347),
+    "twos": (892, 347),
+    "threes": (938, 347),
+    "fours": (984, 349),
+    "fives": (1028, 349),
+    "sixes": (1074, 349),
+    "three of a kind": (892, 495),
+    "four of a kind": (892, 541),
+    "full house": (1020, 450),
+    "small straight": (1011, 496),
+    "large straight": (1011, 542),
+    "Yahtzee": (953, 588),
+    "chance": (895, 451)
+}
 def play_game(player, game, verbose=True):
 
     if verbose:
@@ -26,7 +42,12 @@ def play_game(player, game, verbose=True):
             game.receive_action(action)
 
             if isinstance(action, int):
-                input("\nClaim the '{}' reward!\n".format(PAYOFF_LS[action][0]))
+                print(PAYOFF_LS[action][0])
+                from time import sleep
+                game.app_controller.click_resume_button()
+                sleep(0.5)
+                pyautogui.click(reward_to_coords[PAYOFF_LS[action][0]])
+                input("\nClaimed the '{}' reward! Press enter\n".format(PAYOFF_LS[action][0]))
                 break
         
         game.end_turn(action) 
